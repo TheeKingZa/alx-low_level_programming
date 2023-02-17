@@ -1,2 +1,8 @@
 #!/bin/bash
 gcc $CFILE -E -o c
+/**
+* gcc to preprocess
+* -E is to STOP process
+* -o is to Output
+* c is the main file (.c)
+*/

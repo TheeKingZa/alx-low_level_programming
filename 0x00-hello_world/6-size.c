@@ -6,12 +6,12 @@
  *
  * return (0) Always(success)
  */
-int main() 
+int main(void)
 {
 	printf("Checking system type...\n");
-/*Check if running on 32-bit or 64-bit system*/
+	/*Check if running on 32-bit or 64-bit system*/
 
-	if (sizeof(void*) == 4)
+	if (sizeof(*void) == 4)
 	{
 		printf("Running on a 32-bit system.\n");
 		printf("The size of char is %u\n", sizeof(char));
@@ -20,7 +20,7 @@ int main()
 		printf("The size of long long int is %u\n", sizeof(long long int))
 		printf("The size of float is %u\n", sizeof(float));
 }
-	else 
+	else
 {
 		printf("Running on a 64-bit system.\n");
 		printf("The size of char is %lu\n", sizeof(char));
@@ -28,7 +28,7 @@ int main()
 		printf("The size of long is int %lu\n", sizeof(long int));
 		printf("The size of long long int is %lu\n", sizeof(long long int));
 		printf("The size of float is %lu\n", sizeof(float));
-  }
-  /*return 0 for success*/
-  return 0;
+}
+/*return 0 for success*/
+		return (0);
 }

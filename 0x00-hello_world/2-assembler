@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S -o .s 
+gcc -S -o s 

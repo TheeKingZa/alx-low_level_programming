@@ -1,22 +1,34 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 /*
- * main -prints sizesof()
+ * main -running on sizeof 32bit or 64bit.
  *
- * return : 0 always.(success)
+ * return (0) Always(success)
  */
-int main(void)
+int main() 
 {
-	printf("The size of int is %lu bytes\n", sizeof(int));
-	printf("The size of short is %lu bytes\n", sizeof(short));
-	printf("The size of long is %lu bytes\n", sizeof(long));
-	printf("The size of long long is %lu bytes\n", sizeof(long long));
-	printf("The size of char is %lu bytes\n", sizeof(char));
-	printf("The size of float is %lu bytes\n", sizeof(float));
-	printf("The size of double is %lu bytes\n", sizeof(double));
-	printf("The size of long double is %lu bytes\n", sizeof(long double));
-	printf("The size of void * is %lu bytes\n", sizeof(void *));
+	printf("Checking system type...\n");
+/*Check if running on 32-bit or 64-bit system*/
 
-	/*return 0 for success*/
-
-return (0);
+	if (sizeof(void*) == 4)
+	{
+		printf("Running on a 32-bit system.\n");
+		printf("The size of char is %u\n", sizeof(char));
+		printf("The size of int is %u\n", sizeof(int));
+		printf("The size of long int is %u\n", sizeof(long int));
+		printf("The size of long long int is %u\n", sizeof(long long int))
+		printf("The size of float is %u\n", sizeof(float));
+}
+	else 
+{
+		printf("Running on a 64-bit system.\n");
+		printf("The size of char is %lu\n", sizeof(char));
+		printf("The size of int is %lu\n", sizeof(int));
+		printf("The size of long is int %lu\n", sizeof(long int));
+		printf("The size of long long int is %lu\n", sizeof(long long int));
+		printf("The size of float is %lu\n", sizeof(float));
+  }
+  /*return 0 for success*/
+  return 0;
 }

@@ -1,5 +1,5 @@
 Objectives For My C programming
-in	0x00. C - Hello, World.
+in      0x00. C - Hello, World.
 
 INDEX
 

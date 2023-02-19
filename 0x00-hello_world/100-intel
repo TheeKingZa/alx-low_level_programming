@@ -1,2 +1,2 @@
 #!/bin/bash
-export -S -masm=intel -o .s 
+gcc -S .c -o .s

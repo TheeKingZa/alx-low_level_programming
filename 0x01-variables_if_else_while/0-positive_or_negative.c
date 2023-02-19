@@ -1,24 +1,25 @@
 #include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 /**
- * Main - print random num and say if positive,negative or zero
+ * main - Entry point of program
  *
- * Return : Always 0 (Success)
+ * Description: Prints using 'puts' function
  *
+ * Return: 0 (success code)
  */
 int main(void)
 {
-	int n;
+				int n;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	if (n > 0)
-		printf("%d is positive\n", n);
-	else if (n < 0)
-		printf("%d is negative\n", n);
-	else
-		printf("%d is zero\n", n);
+				srand(time(0));
+				n = rand() - RAND_MAX / 2;
+				if (n > 0)
+				printf("%d is positive\n", n);
+				else if (n < 0)
+				printf("%d is negative\n", n);
+				else
+				printf("%d is zero\n", n);
 
-	return (0);
+				return (0);
+/*Return 0 success*/
 }

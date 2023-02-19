@@ -10,12 +10,14 @@
 int main(void)
 {
 				int n;
+				int last_digit; /* declare last_digit  before any exe statmnts */
 
 				srand(time(0));
 				n = rand() - RAND_MAX / 2;
-				printf("Last digit of %d is ", n);
+				
+				last_digit = n % 10; /* assign value to last_digit */
 
-				int last_digit = n % 10; /* get the last digit of n */
+				printf("Last digit of %d is ", n);
 
 				if (last_digit > 5)
 				{

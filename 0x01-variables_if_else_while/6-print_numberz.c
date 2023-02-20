@@ -8,7 +8,9 @@
  */
 int main(void)
 {
-				/*No declaration for this*/
+				putchar('0');
+				putchar('\n');
+				/*only 2 putchar declaration for this*/
 				putchar('0');
 				putchar('1');
 				putchar('2');

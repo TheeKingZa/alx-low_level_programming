@@ -8,21 +8,15 @@
  */
 int main(void)
 {
-				putchar('0');
+				int i; /*Declaration (i)*/
+
+				for (i = 1; i < 10; i++)  /*loop starts i=1 as long i < 10 add by 1*/
+				{
+				putchar(i + '0');
+				}
+				/*prints numbers*/
 				putchar('\n');
-				/*only 2 putchar declaration for this*/
-				putchar('0');
-				putchar('1');
-				putchar('2');
-				putchar('3');
-				putchar('4');
-				putchar('5');
-				putchar('6');
-				putchar('7');
-				putchar('8');
-				putchar('9');
-				putchar('\n');
-				/*Putchar print every number one by one*/
+
 				return (0);
 /*Return 0 (Success code)*/
 }

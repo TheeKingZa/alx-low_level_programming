@@ -10,7 +10,7 @@ int main(void)
 {
 				int i; /*Declaration (i)*/
 
-				for (i = 1; i < 10; i++)  /*loop starts i=1 as long i < 10 add by 1*/
+				for (i = 0; i < 10; i++)  /*loop starts i= 0 as long i < 10 add by 1*/
 				{
 				putchar(i + '0');
 				}

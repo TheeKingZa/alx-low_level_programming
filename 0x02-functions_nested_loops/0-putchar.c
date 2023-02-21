@@ -1,25 +1,23 @@
-#include <stdio.h>
 #include "main.h"
 /**
-* main - Entry point
+* main -_putchar prints alphabets of _putchar
 *
-* Description: This program prints the text "_putchar" followed by a newline
-* character. It then returns 0 to indicate successful completion.
+* Description: printing indivisual letters of _putchar
 *
-* Return: Always 0 (success)
+* Return: 0 Success
 */
+
 int main(void)
 {
-/* use _putchar to print the characters */
-				putchar('_');
-				putchar('p');
-				putchar('u');
-				putchar('t');
-				putchar('c');
-				putchar('h');
-				putchar('a');
-				putchar('r');
-				putchar('\n');
-/*Return 0 Success code*/
+				_putchar('_');
+				_putchar('p');
+				_putchar('u');
+				_putchar('t');
+				_putchar('c');
+				_putchar('h');
+				_putchar('a');
+				_putchar('r');
+				_putchar('\n');
+			/* Return 0 Success code*/
 				return (0);
 }

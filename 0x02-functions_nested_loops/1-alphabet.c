@@ -1,8 +1,8 @@
 #include "main.h"
-/**
+/*
 * main - Entry point of the program
 *
-* Description: function prints alphabets
+* Description: function 'prints' alphabets
 *
 * Return: void (Success code)
 */
@@ -15,6 +15,6 @@ void print_alphabet(void)
 				_putchar(letter);
 				letter++;
 				}
-				/*return void*/
+	/*return void*/
 				_putchar('\n');
 }

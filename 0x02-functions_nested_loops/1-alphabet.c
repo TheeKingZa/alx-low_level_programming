@@ -1,20 +1,14 @@
 #include "main.h"
-/*
-* print_alphabet - prints the alphabet in lowercase
-*
-* This function 'prints' alphabets using 'while loop'
-*
-* Return: void (Success code)
-*/
+
+/**
+ * print_alphabet - Prints the lowercase alphabet
+ */
 void print_alphabet(void)
 {
-				char letter = 'a';
-				/*while loop starts here 'a' <= 'z'= letter++*/
-				while (letter <= 'z')
-				{
-				_putchar(letter);
-				letter++;
-				}
-	/*return void*/
-				_putchar('\n');
+	char c;
+
+	for (c = 'a'; c <= 'z'; c++)
+		_putchar(c);
+	_putchar('\n');
 }
+

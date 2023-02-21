@@ -17,11 +17,11 @@ for (j = 0; j <= 9; j++)
 int product = i * j;
 if (j == 0)
 {
-printf("%d", product);
+printf("%2d", product);
 }
 else
 {
-printf(", %d", product);
+printf(", %2d", product);
 }
 }
 /* Move to the next row */

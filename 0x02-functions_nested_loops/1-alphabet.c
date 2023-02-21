@@ -1,8 +1,8 @@
 #include "main.h"
 /*
-* main - Entry point of the program
+* print_alphabet - prints the alphabet in lowercase
 *
-* Description: function 'prints' alphabets
+* This function 'prints' alphabets using 'while loop'
 *
 * Return: void (Success code)
 */

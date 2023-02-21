@@ -1,11 +1,11 @@
 #include "main.h"
-/*
-* main - Entry point of program
-*
-* Description: function that prints lowercase.
-*
-* Return: void
-*/
+/**
+ * main - Entry point of the program
+ *
+ * Description: function prints alphabets
+ *
+ * Return: void (Success code)
+ */
 void print_alphabet(void)
 {
 				char letter = 'a';

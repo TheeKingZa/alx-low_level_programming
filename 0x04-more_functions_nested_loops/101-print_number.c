@@ -1,27 +1,25 @@
+#include <stdio.h>
 #include "main.h"
-
 /**
- * print_number - prints an integer
- * @n: integer to be printed
- */
+* print_number - Prints an integer
+*
+* @n: The integer to be printed
+*
+* Return: void
+*/
 void print_number(int n)
 {
-unsigned int n1;
-
+	/* Check if the is negative */
 if (n < 0)
 {
-n1 = -n;
-_putchar('-');
+_putchar('-');	/* Print a minus sign */
+n = -n;	/* Make the integer positive */
 }
-else
+/* Check if the integer has more than ine digit */
+if (n / 10 != 0)
 {
-n1 = n;
+print_number(n / 10);	/* Recursively print the integer with one less digit */
 }
-
-if (n1 / 10)
-{
-print_number(n1 / 10);
-}
-
-_putchar((n1 % 10) + '0');
+/* Print the least significant digit of the interger*/
+_putchar(n % 10 + '0');
 }

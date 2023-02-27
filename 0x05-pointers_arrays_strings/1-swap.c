@@ -1,24 +1,20 @@
 #include "main.h"
 #include <stdio.h>
 
-/**
- * swap_int - Swaps the values of two integers
- *
- * @a: Pointer to the first integer
- * @b: Pointer to the second integer
- *
- * Return: void
- */
 
+/**
+* swap_int - Swaps the values of two integers
+*
+* @a: Pointer to the first integer
+* @b: Pointer to the second integer
+*
+* Return: void
+*/
 void swap_int(int *a, int *b)
 {
-int temp;
-
-temp = *a;	/* Store Value of a*/
-*a = *b;	/* Assign Value of B to A */
-*b = temp;	/* Assign Value of temp to B */
-
-printf("After swap: a=%d, b=%d\n", *a, *b);
+int temp = *a;/* Store the value of a in a temporary variable */
+*a = *b;/* Assign the value of B to A */
+*b = temp;/* Assign the value of the temporary variable to B */
 }
 
 /**
@@ -29,11 +25,12 @@ printf("After swap: a=%d, b=%d\n", *a, *b);
 
 int my_main(void)
 {
-int a = 98, b = 42;
+int a = 98;
+int b = 42;
 
-printf("%d, %d\n", a, b);	/* print the Initial value of A and B */
-swap_int(&a, &b);		/* Swap the values of A & B */
-printf("%d, %d\n", a, b);	/* print the new value of A & B */
+printf("%d, %d\n", a, b);/* Print the initial values of a and b*/
+swap_int(&a, &b);/* Swap the values of a and b*/
+printf("%d, %d\n", a, b);/*Print the new values of a and b */
 
 return (0);
 }

@@ -31,9 +31,9 @@ int my_main(void)
 {
 int a = 98, b = 42;
 
-printf("Before swap: a=%d, b=%d\n", a, b);
-swap_int(&a, &b);
-printf("Back in main: a=%d, b=%d\n", a, b);
+printf("%d, %d\n", a, b);	/* print the Initial value of A and B */
+swap_int(&a, &b);		/* Swap the values of A & B */
+printf("%d, %d\n", a, b);	/* print the new value of A & B */
 
 return (0);
 }

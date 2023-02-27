@@ -9,5 +9,5 @@
  */
 void reset_to_98(int *n)
 {
-    *n = 98;  // Dereference the pointer to update the value it points to
+		*n = 98;  /* Dereference the pointer to update the value it points to */
 }

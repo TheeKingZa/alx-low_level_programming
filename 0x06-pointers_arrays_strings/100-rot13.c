@@ -10,11 +10,6 @@ char *rot13(char *s)
 {
 char *p = s;  /* Pointer to traverse the string */
 
-	/**
-	 * Loop through the string until the null terminator
-	 * is reached
-	 */
-
 while (*p != '\0')
 {
 	/* Check if the character is an alphabetic letter */

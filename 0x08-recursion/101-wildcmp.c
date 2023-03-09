@@ -1,6 +1,5 @@
 #include "main.h"
-#include "holberton.h"
-
+#include <stdio.h>
 /**
  * wildcmp - Compares two strings, considering the wildcard character *.
  * @s1: Pointer to the first string.

@@ -16,7 +16,9 @@ return (-1);
 if (y == 0)
 return (1);
 
-				/* Recursive case: Return the product of x
+				/**
+				 * Recursive case: Return the product of x
+				 *
 				 * & the result of raising x to the power of y-1.
 				 */
 return (x * _pow_recursion(x, y - 1));

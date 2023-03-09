@@ -15,7 +15,8 @@ return (1);
 if (n < 0)
 return (-1);
 
-				/* Recursive case: Return the product of the number 
+				/**
+				 * Recursive case: Return the product of the number
 				 * & the factorial of the number minus 1.
 				 */
 return (n * factorial(n - 1));

@@ -4,6 +4,7 @@
  * is_prime_number - checks if a number is prime
  *
  * @n: the number to check
+ * @i: the divisor to check n against
  *
  * Return: 1 if n is prime, 0 otherwise
 **/

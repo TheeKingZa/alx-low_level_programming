@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "main.h"
-#include "holberton.h"
 
 /**
  * _puts_recursion - Prints a string followed by a new line.

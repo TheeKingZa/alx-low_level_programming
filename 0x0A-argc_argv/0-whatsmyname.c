@@ -1,18 +1,24 @@
 #include <stdio.h>
 
-/**
- * main - Entry point of the program
- *
- * Return: Always 0 (success)
- */
-int main(void)
-{
-				/**
-				 * Use printf to print the name of the
-				 * current file followed by a new line
-				 */
-printf("%s\n", __FILE__);
+#include "main.h"
 
-/* Return 0 to indicate that the program has completed successfully */
+
+
+/**
+* main - prints the name of the program
+* @argc: number of arguments
+* @argv: array of arguments
+* Return: Always 0 (Success)
+*/
+
+int main(int argc __attribute__((unused)), char *argv[])
+
+{
+
+printf("%s\n", *argv);
+
+
+
 return (0);
+
 }

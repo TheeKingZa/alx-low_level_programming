@@ -11,15 +11,20 @@
  * Return: On success, returns a pointer to the created array.
  *         On failure, returns NULL.
  */
+
 char *create_array(unsigned int size, char c)
 {
+
 char *array;
+unsigned int i;
 
 /* Check for zero size */
+
 if (size == 0)
 {
 return (NULL);
 }
+
 /* Allocate memory for the array */
 array = (char *) malloc(size * sizeof(char));
 if (array == NULL)

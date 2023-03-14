@@ -1,73 +1,50 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 /**
-* count_word - helper function to count the number of words in a string.
+* strtow - Splits a string into words.
 *
-* @s: string to evaluate.
+* @str: The string to be splitted.
 *
-* Return: number of words
-*/
-
-int count_word(char *s)
-
-{
-int flag, c, w;
-flag = 0;
-w = 0;
-for (c = 0; s[c] != '\0'; c++)
-{
-if (s[c] == ' ')
-flag = 0;
-else if (flag == 0)
-{
-flag = 1;
-w++;
-}
-}
-return (w);
-}
-/**
-* strtow - splits a string into words
-* @str: string to split
-*
-* Return: pointer to an array of strings (Success)
-* or NULL (Error)
+* Return: Pointer to an array of strings (words) or NULL if str is NULL or ""
 */
 char **strtow(char *str)
 {
-char **matrix, *tmp;
-int i, k = 0, len = 0, words, c = 0, start, end;
-while (*(str + len))
+char **words;
+int i, j, k, n, len;
+
+if (str == NULL || *str == '\0') /* check if str is NULL or "" */
+return (NULL);
+
+len = 0;
+for (i = 0; str[i] != '\0'; i++) /* count number of words in str */
+{
+if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 len++;
-words = count_word(str);
-if (words == 0)
-return (NULL);
-matrix = (char **) malloc(sizeof(char *) * (words + 1));
-if (matrix == NULL)
-return (NULL);
-for (i = 0; i <= len; i++)
-{
-if (str[i] == ' ' || str[i] == '\0')
-{
-if (c)
-{
-end = i;
-tmp = (char *) malloc(sizeof(char) * (c + 1));
-if (tmp == NULL)
-return (NULL);
-while (start < end)
-{
-*tmp++ = str[start++];
-*tmp = '\0';
-matrix[k] = tmp - c;
-k++;
-c = 0;
 }
-}
+words = malloc(sizeof(char *) * (len + 1));
+/* allocate memory for words array */
+if (words == NULL) /* check if malloc fails */
+return (NULL);
+n = 0;
+for (i = 0; i < len; i++)
 {
-else if (c++ == 0)
-start = i;
+while (str[n] == ' ') /* skip spaces */
+n++;
+for (j = n; str[j] != ' '; j++) /* count length of word */
+;
+words[i] = malloc(sizeof(char) * (j - n + 1)); /* allocate memory for word */
+if (words[i] == NULL) /* check if malloc fails */
+{
+for (k = 0; k < i; k++) /* free previous words */
+free(words[k]);
+free(words);
+return (NULL);
 }
-matrix[k] = NULL;
-return (matrix);
+for (k = 0; k < (j - n); k++) /* copy word */
+words[i][k] = str[n + k];
+words[i][k] = '\0'; /* null-terminate word */
+n = j + 1;
+}
+words[i] = NULL; /* set last element to NULL */
+return (words);
 }

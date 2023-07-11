@@ -1,10 +1,20 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>
+#include <stdarg.h>
+/* Include for va_list */
+
 
 int _putchar(char c);
-ssize_t read_textfile(const char *filename, size_t letters);
+int _printf(const char *format, ...);
+int print_integer(int num);
+int print_binary(unsigned int num);
+int print_string(char *str);
+int handler(const char *format, va_list args, char *buffer, int *count);
+
+
+
+
 
 #endif /* MAIN_H */
 

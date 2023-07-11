@@ -1,100 +1,64 @@
- PRINTF_
+File I/O and System Calls
 
-printf is a function in the C programming language (and some other programming languages) that is used to format and print data. It stands for "print formatted," and it allows you to output text, variables, and other data to the console or another output stream.
 
-Here are some secrets and tips about printf:
+User
 
-1. 
-Format Specifiers: printf uses format specifiers to define the type and format of the data to be printed. For example, %d is used for integers, %f for floating-point numbers, %s for strings, and %c for characters. Format specifiers are prefixed with a percent sign (%).
+0x15. C - File I/O
+C
+Syscall
+ By: Julien Barbier
+ Weight: 1
+ Project will start Jul 10, 2023 6:00 AM, must end by Jul 11, 2023 6:00 AM
+ Checker will be released at Jul 10, 2023 12:00 PM
+ An auto review will be launched at the deadline
+Resources
+Read or watch:
 
-2.
-Multiple Format Specifiers: You can use multiple format specifiers in a single printf statement to print multiple values. For example:
-----
-int age = 25;
-float height = 1.75;
-printf("I am %d years old and %.2f meters tall.\n", age, height);
+File descriptors
+C Programming in Linux Tutorial #024 - open() read() write() Functions
+man or help:
 
-----
-Output: "I am 25 years old and 1.75 meters tall."
-----
-3.
-Escape Sequences: printf supports escape sequences, which are special characters preceded by a backslash () to represent non-printable or special characters. For example, \n represents a newline, \t represents a tab, and \" represents a double quote.
+open
+close
+read
+write
+dprintf
+Learning Objectives
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-4.
-Field Width and Precision: You can specify the field width and precision of the output using format specifiers. For example, %5d specifies a minimum width of 5 characters for an integer. Similarly, %.2f specifies a floating-point number with two decimal places.
+General
+Look for the right source of information online
+How to create, open, close, read and write files
+What are file descriptors
+What are the 3 standard file descriptors, what are their purpose and what are their POSIX names
+How to use the I/O system calls open, close, read and write
+What are and how to use the flags O_RDONLY, O_WRONLY, O_RDWR
+What are file permissions, and how to set them when creating a file with the open system call
+What is a system call
+What is the difference between a function and a system call
 
-5.
-Left Alignment: By default, printf right-aligns the output within the specified field width. You can use the - flag to left-align the output. For example:
+ChatGPT
+A system call is a mechanism provided by the operating system that allows user-level programs to request services from the kernel. It provides an interface between the user space and the kernel space. System calls are typically used for low-level operations that require privileged access or interaction with hardware devices.
 
-int num = 42;
-printf("Number: %-5d\n", num);
-----
-Output: "Number: 42 " (5 spaces after the number)
-----
+The main difference between a function and a system call is that a function is executed within the user space, while a system call transitions from the user space to the kernel space. When a system call is invoked, the CPU switches from user mode to kernel mode, giving the operating system direct control over the hardware and resources. This allows system calls to perform privileged operations such as file I/O, process management, network communication, and more.
 
-6.
-Formatting Flags: There are various formatting flags you can use to modify the output. For example, + adds a plus sign for positive numbers, 0 pads the output with zeros, and # adds a prefix for octal or hexadecimal numbers.
+Functions, on the other hand, are routines or procedures that are executed within the user space. They operate on data within the same process and do not require a transition to the kernel. Functions are typically part of a programming language's standard library or custom libraries and provide reusable code to perform specific tasks.
 
-7.
-Printing Pointers: You can use the %p format specifier to print the memory address of a pointer. For example:
+In the context of file I/O, system calls such as open, close, read, and write are used to interact with files. These system calls allow you to create, open, close, read from, and write to files. They operate on file descriptors, which are small non-negative integers representing open files within a process.
 
-int* ptr = NULL;
-printf("Pointer address: %p\n", (void*)ptr);
-----
-Output: "Pointer address: 0x0" (null pointer)
----
+The three standard file descriptors are:
 
-8.
-Returning Number of Characters: The printf function returns the number of characters printed successfully. You can store this value in a variable to determine the length of the printed output.
+Standard Input (STDIN): Represented by file descriptor 0. It is used for reading input from the user or other sources.
+Standard Output (STDOUT): Represented by file descriptor 1. It is used for writing output to the console or other destinations.
+Standard Error (STDERR): Represented by file descriptor 2. It is used for writing error messages or diagnostic information.
+The POSIX names for these file descriptors are STDIN_FILENO, STDOUT_FILENO, and STDERR_FILENO, respectively.
 
-9.
-Using the * Width Specifier: Instead of specifying a fixed field width, you can pass the width as an argument to printf. For example:
-----
-int width = 8;
-printf("%*d\n", width, 42);
-----
-Output: " 42" (8 spaces before the number)
-----
+When using the open system call, you can specify different flags to control the file's behavior. Some common flags are:
 
-10.
-Formatting Integers with Leading Zeros: You can use the 0 flag to pad integer outputs with leading zeros. This is commonly used for formatting numbers with fixed lengths. For example:
-----
-int number = 7;
-printf("Number: %04d\n", number);
-----
-Output: "Number: 0007"
-----
+O_RDONLY: Open the file for reading only.
+O_WRONLY: Open the file for writing only.
+O_RDWR: Open the file for both reading and writing.
+File permissions determine who can access and perform operations on a file. When creating a file with the open system call, you can specify the file permissions using the mode parameter. The permissions are represented using octal values and define the read, write, and execute permissions for the owner, group, and others.
 
-11.
-Printing Floating-Point Numbers in Exponential Notation: If you want to print a floating-point number in exponential notation (scientific notation), you can use the %e or %E format specifier. For example:
-----
-float value = 12345.6789;
-printf("Value: %e\n", value);
-----
-Output: "Value: 1.234568e+04"
-----
-
-12.
-Printing Special Characters: Sometimes, you may need to print special characters that have no corresponding format specifier. In such cases, you can cast the character to an integer and use the %c format specifier. For example:
-----
-char special = '@';
-printf("Special character: %c\n", (int)special);
-----
-Output: "Special character: @".
-----
-
-13.
-Format Specifiers for Different Data Types: printf provides different format specifiers for various data types. Here are a few commonly used specifiers:
-
-* %d for integers (decimal format)
-* %f for floating-point numbers
-* %s for strings
-* %c for characters
-* %x or %X for hexadecimal integers (lowercase or uppercase)
-* %o for octal integers
-* %u for unsigned integers
-* %ld or %lu for long integers (decimal or unsigned)
-* %lld or %llu for long long integers (decimal or unsigned)
-
-Remember that these are just a subset of the available format specifiers. The complete list and detailed formatting options can be found in the documentation for printf in your programming language's documentation or standard library reference.
+To summarize, system calls are low-level functions provided by the operating system that allow user-level programs to access privileged operations and interact with hardware. File I/O system calls such as open, close, read, and write are used for file operations, and file descriptors are used to represent open files within a process. The three standard file descriptors are STDIN, STDOUT, and STDERR, with POSIX names STDIN_FILENO, STDOUT_FILENO, and STDERR_FILENO. Functions, on the other hand, are routines executed within the user space and operate on data within the same process.
 

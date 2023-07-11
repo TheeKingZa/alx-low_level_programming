@@ -1,0 +1,29 @@
+#include "main.h"
+#include <stdio.h>
+/**
+* main - Entry point of the program
+*
+* printf - Printd the avoided infinite loop
+*
+* Return: Always 0 (Success)
+*/
+int main(void)
+{
+int i;
+
+printf("Infinite loop incoming :(\n");
+
+i = 0;
+
+/**
+* Commented out the code causing the infinite loop
+* while (i < 10)
+* {
+* putchar(i);
+* }
+*/
+
+printf("Infinite loop avoided! \\o/\n");
+
+return (0);
+}

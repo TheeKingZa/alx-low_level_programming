@@ -1,29 +1,50 @@
-#include "main.h"
-#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
 /**
- * create_file - Creates file.
+ * create_file - Creates a file with the given filename and writes the
+ *               content of text_content into it.
+ * @filename: The name of the file to create.
+ * @text_content: The NULL-terminated string to write to the file.
  *
- * @filename: A pointer to the name of file created.
- * @text_content: A pointer to string, write to file.
- *
- * Return: If the function fails --1.
- *              Otherwise -1.
+ * Return: 1 on success, -1 on failure.
  */
 int create_file(const char *filename, char *text_content)
 {
-int fd, w, len = 0;
+/* Variable declarations */
+int file_descriptor, write_count, length = 0;
 
+/* Check if filename is NULL */
 if (filename == NULL)
 return (-1);
+
+/* Open the file with the appropriate flags and permissions */
+file_descriptor = open(filename,
+		O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+if (file_descriptor == -1)
+return (-1);
+
+/* Check if text_content is not NULL */
 if (text_content != NULL)
 {
-for (len = 0; text_content[len];)
-len++;
-}
-fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-w = write(fd, text_content, len);
-if (fd == 1 || w == -1)
+/* Calculate the length of the string */
+while (text_content[length])
+length++;
+
+/* Write the content to the file */
+write_count = write(file_descriptor, text_content, length);
+if (write_count == -1 || write_count != length)
+{
+/* Close the file and return -1 if write operation fails */
+close(file_descriptor);
 return (-1);
-close(fd);
+}
+}
+
+/* Close the file and return 1 to indicate success */
+close(file_descriptor);
 return (1);
 }

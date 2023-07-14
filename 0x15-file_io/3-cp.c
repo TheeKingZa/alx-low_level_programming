@@ -1,85 +1,84 @@
-#include "holberton.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
 
-#define MAXSIZE 1024
-
+#define BUF_SIZE 1024
 
 /**
- * _exit - prints error messages and exits with exit number
- *
- * @error: either the exit number or file descriptor
- * @str: name of either file_in or file_out
- * @fd: file descriptor
- *
- * Return: 0 on success
-*/
-int _exit(int error, char *str, int fd)
+ * error_exit - Prints an error message and exits the program.
+ * @msg: The error message to print.
+ * @exit_code: The exit code to use when terminating the program.
+ */
+void error_exit(const char *msg, int exit_code)
 {
-	switch (error)
-	{
-		case 97:
-			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-			exit(error);
-		case 98:
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
-			exit(error);
-		case 99:
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
-			exit(error);
-		case 100:
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-			exit(error);
-		default:
-			return (0);
-	}
+ssize_t len = 0;
+
+while (msg[len])
+len++;
+
+write(STDERR_FILENO, msg, len);
+exit(exit_code);
 }
 
 /**
- * main - create a copy of file
- *
- * @argc: argument counter
- * @argv: argument vector
- *
- * Return: 0 for success.
-*/
+ * read_textfile - Reads a text file and writes its content to standard output.
+ * @filename: The name of the file to read.
+ * @letters: The number of characters to read from the file.
+ * Return: The number of characters actually read, or -1 on failure.
+ */
+ssize_t read_textfile(const char *filename, size_t letters)
+{
+int fd;
+ssize_t bytes_read, bytes_written;
+char *buffer;
+
+fd = open(filename, O_RDONLY);
+if (fd == -1)
+error_exit("Error: Can't read from file ", 98);
+
+buffer = malloc(sizeof(char) * BUF_SIZE);
+if (buffer == NULL)
+error_exit("Error: malloc failed\n", 98);
+
+while (letters > 0)
+{
+bytes_read = read(fd, buffer, BUF_SIZE);
+if (bytes_read == -1)
+error_exit("Error: Can't read from file ", 98);
+if (bytes_read == 0)
+break;
+
+bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+if (bytes_written == -1 || bytes_written != bytes_read)
+error_exit("Error: Can't write to ", 99);
+
+letters -= bytes_read;
+}
+
+free(buffer);
+if (close(fd) == -1)
+error_exit("Error: Can't close fd ", 100);
+
+return (letters);
+}
+
+/**
+ * main - Entry point of the program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of command-line argument strings.
+ * Return: 0 on success, or an exit code on failure.
+ */
 int main(int argc, char *argv[])
 {
-	int file_in, file_out;
-	int read_stat, write_stat;
-	int close_in, close_out;
-	char buffer[MAXSIZE];
+ssize_t letters;
 
-	/*if arguments are not 3*/
-	if (argc != 3)
-		_exit(97, NULL, 0);
-	/*sets file descriptor for copy from file*/
-	file_in = open(argv[1], O_RDONLY);
-	if (file_in == -1)
-		_exit(98, argv[1], 0);
+if (argc != 3)
+error_exit("Usage: cp file_from file_to\n", 97);
 
-	/*sets file descriptor for copy to file*/
-	file_out = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (file_out == -1)
-		_exit(99, argv[2], 0);
+letters = read_textfile(argv[1], BUF_SIZE);
+if (letters == -1)
+error_exit("Error: Can't read from file ", 98);
 
-	/*reads file_in as long as its not NULL*/
-	while ((read_stat = read(file_in, buffer, MAXSIZE)) != 0)
-	{
-		if (read_stat == -1)
-			_exit(98, argv[1], 0);
-
-		/*copy and write contents to file_out*/
-		write_stat = write(file_out, buffer, read_stat);
-		if (write_stat == -1)
-			_exit(99, argv[2], 0);
-	}
-
-	close_in = close(file_in); /*close file_in*/
-	if (close_in == -1)
-		_exit(100, NULL, file_in);
-
-	close_out = close(file_out); /*close file_out*/
-	if (close_out == -1)
-		_exit(100, NULL, file_out);
-
-	return (0);
+exit(EXIT_SUCCESS);
 }

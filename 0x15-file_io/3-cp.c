@@ -1,84 +1,88 @@
-#include <fcntl.h>
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
+#include <fcntl.h>  // Include this header for open() function
+#include <unistd.h> // Include this header for read(), write(), and close() functions
 
-#define BUF_SIZE 1024
-
-/**
- * error_exit - Prints an error message and exits the program.
- * @msg: The error message to print.
- * @exit_code: The exit code to use when terminating the program.
- */
-void error_exit(const char *msg, int exit_code)
-{
-ssize_t len = 0;
-
-while (msg[len])
-len++;
-
-write(STDERR_FILENO, msg, len);
-exit(exit_code);
-}
+#define BUFFER_SIZE 1024
 
 /**
- * read_textfile - Reads a text file and writes its content to standard output.
- * @filename: The name of the file to read.
- * @letters: The number of characters to read from the file.
- * Return: The number of characters actually read, or -1 on failure.
+ * copy_files - Copies the contents of one file to another file.
+ * @file_from: The name of the source file to copy from.
+ * @file_to: The name of the destination file to copy to.
+ *
+ * Return: 0 on success, or exit with appropriate error codes on failure.
  */
-ssize_t read_textfile(const char *filename, size_t letters)
+int copy_files(const char *file_from, const char *file_to)
 {
-int fd;
-ssize_t bytes_read, bytes_written;
-char *buffer;
+    int from, to, r, w;
+    char buffer[BUFFER_SIZE];
 
-fd = open(filename, O_RDONLY);
-if (fd == -1)
-error_exit("Error: Can't read from file ", 98);
+    // Open the source file "file_from" for reading
+    from = open(file_from, O_RDONLY);
+    if (from == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+        return 98;
+    }
 
-buffer = malloc(sizeof(char) * BUF_SIZE);
-if (buffer == NULL)
-error_exit("Error: malloc failed\n", 98);
+    // Open or create the destination file "file_to" for writing
+    to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    if (to == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+        close(from); // Close the source file descriptor before exiting
+        return 99;
+    }
 
-while (letters > 0)
-{
-bytes_read = read(fd, buffer, BUF_SIZE);
-if (bytes_read == -1)
-error_exit("Error: Can't read from file ", 98);
-if (bytes_read == 0)
-break;
+    // Copy the contents from the source file to the destination file
+    while ((r = read(from, buffer, BUFFER_SIZE)) > 0)
+    {
+        w = write(to, buffer, r);
+        if (w == -1 || w != r)
+        {
+            dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+            close(from);
+            close(to);
+            return 99;
+        }
+    }
 
-bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-if (bytes_written == -1 || bytes_written != bytes_read)
-error_exit("Error: Can't write to ", 99);
+    if (r == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+        close(from);
+        close(to);
+        return 98;
+    }
 
-letters -= bytes_read;
-}
+    // Close both files after successful copying
+    close(from);
+    close(to);
 
-free(buffer);
-if (close(fd) == -1)
-error_exit("Error: Can't close fd ", 100);
-
-return (letters);
+    return 0; // Return 0 to indicate success
 }
 
 /**
  * main - Entry point of the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of command-line argument strings.
- * Return: 0 on success, or an exit code on failure.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
+ *
+ * Return: 0 on success, or appropriate exit code on failure.
  */
 int main(int argc, char *argv[])
 {
-ssize_t letters;
+    if (argc != 3)
+    {
+        dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+        return 97;
+    }
 
-if (argc != 3)
-error_exit("Usage: cp file_from file_to\n", 97);
+    int result = copy_files(argv[1], argv[2]);
+    if (result != 0)
+    {
+        return result;
+    }
 
-letters = read_textfile(argv[1], BUF_SIZE);
-if (letters == -1)
-error_exit("Error: Can't read from file ", 98);
-
-exit(EXIT_SUCCESS);
+    printf("File copied successfully!\n");
+    return 0;
 }

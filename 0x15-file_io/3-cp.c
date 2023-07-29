@@ -1,101 +1,72 @@
 #include "main.h"
-#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdlib.h>
 
-char *create_buff(char *file);
-void clse_file(int fd);
+#define BUFFER_SIZE 1024
 
 /**
- * create_buff - Allocates 1024 bytes for a buffer.
+ * copy_files - Copies the contents of one file to another file.
+ * @file_from: The name of the source file to copy from.
+ * @file_to: The name of the destination file to copy to.
  *
- * @file: The name of the file buffer is storing chars for.
- *
- * Return: A pointer to the newly-allocated buffer.
+ * Return: 0 on success, or exit with appropriate error codes on failure.
  */
-char *create_buff(char *file)
-{
-        char *buff;
-
-        buffer = malloc(sizeof(char) * 1024);
-
-        if (buffer == NULL)
-        {
-                dprintf(STDERR_FILENO,
-                        "Error: Can't write to %s\n", file);
-                exit(99);
-        }
-
-        return (buff);
-}
-
-/**
- * clse_file - Closes file descriptors.
- *
- * @fd: The file descriptor to be closed.
- */
-void clse_file(int fd)
-{
-        int c;
-
-        c = close(fd);
-
-        if (c == -1)
-        {
-                dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-                exit(100);
-        }
-}
-
-/**
- * main - Copies the contents of a file to another file.
- * 
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
- *
- * Return: 0 on success.
- */
-int main(int argc, char *argv[])
+int copy_files(const char *file_from, const char *file_to)
 {
     int from, to, r, w;
-    char *buffer;
+    char buffer[BUFFER_SIZE];
 
-    if (argc != 3)
+    /* Open the source file "file_from" for reading*/
+    from = open(file_from, O_RDONLY);
+    if (from == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+        exit(98);
+    }
+
+    /* Open or create the destination file "file_to" for writing*/
+    to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    if (to == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+        close(from); /* Close the source file descriptor before exiting*/
+        exit(99);
+    }
+
+    /* Copy the contents from the source file to the destination file*/
+    while ((r = read(from, buffer, BUFFER_SIZE)) > 0)
+    {
+        w = write(to, buffer, r);
+        if (w == -1 || w != r)
         {
-                dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-                exit(97);
+            dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+            close(from);
+            close(to);
+            exit(99);
         }
+    }
 
-        buffer = create_buffer(argv[2]);
-        from = open(argv[1], O_RDONLY);
-        r = read(from, buffer, 1024);
-        to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    if (r == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+        close(from);
+        close(to);
+        exit(98);
+    }
 
-        do {
-                if (from == -1 || r == -1)
-                {
-                        dprintf(STDERR_FILENO,
-                                "Error: Can't read from file %s\n", argv[1]);
-                        free(buffer);
-                        exit(98);
-                }
+    /* Close both files after successful copying*/
+    if (close(from) == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
+        exit(100);
+    }
 
-                w = write(to, buffer, r);
-                if (to == -1 || w == -1)
-                {
-                        dprintf(STDERR_FILENO,
-                                "Error: Can't write to %s\n", argv[2]);
-                        free(buffer);
-                        exit(99);
-                }
+    if (close(to) == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
+        exit(100);
+    }
 
-                r = read(from, buffer, 1024);
-                to = open(argv[2], O_WRONLY | O_APPEND);
-
-        } while (r > 0);
-
-        free(buffer);
-        clse_file(from);
-        clse_file(to);
-
-        return (0);
+    return (0); /* Return 0 to indicate success*/
 }

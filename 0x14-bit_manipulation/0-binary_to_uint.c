@@ -9,19 +9,41 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-int i;
-unsigned int dec_val = 0;
+unsigned int dec_value = 0;
+int str_len = 0, base = 1;
 
-if (!b)
+if (!check_valid_string(b))
 return (0);
 
-for (; b[i]; i++)
+while (b[str_len] != '\0')
+str_len++;
+
+while (str_len)
 {
-if (b[i] < '0' || b[i] > '1')
-return (0);
-
-dec_val = 2 * dec_val + (b[i] - '0');
+dec_value += ((b[str_len - 1] - '0') * base);
+base *= 2;
+str_len--;
+}
+return (dec_value);
 }
 
-return (dec_val);
+/**
+ * chck_valid_str - checks a string if it has only 0's and 1's
+ * 
+ * @b: string to be checked
+ *
+ * Return: 1 if string is valid, 0 otherwise
+ */
+int chck_valid_str(const char *b)
+{
+if (b == NULL)
+return (0);
+
+while (*b)
+{
+if (*b != '1' && *b != '0')
+return (0);
+b++;
+}
+return (1);
 }

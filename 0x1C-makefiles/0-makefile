@@ -4,7 +4,7 @@
 all: school
 
 # Build the 'school' executable
-school: main.c school.c
+school:
 	gcc main.c school.c -o school
 
 # Clean up generated files

@@ -1,19 +1,36 @@
+# Compiler and Flags
 CC = gcc
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
-.PHONY:all clean oclean fclean re
 
+# Source Files
+SRC = main.c school.c
+
+# Object Files (automatically generated from source files)
+OBJ = $(SRC:.c=.o)
+
+# Executable Name
+NAME = school
+
+# Cleaning Program (used for deleting files)
+RM = /bin/rm
+
+# Declare phony targets (targets that are not associated with files)
+.PHONY: all clean oclean fclean re
+
+# 'all' rule compiles the program if 'm.h' exists and object files are up to date
 all: m.h $(OBJ)
         $(CC) $(OBJ) -o $(NAME)
 
+# 'clean' rule removes temporary files and the executable
 clean:
         $(RM) *~ $(NAME)
 
+# 'oclean' rule removes the object files
 oclean:
         $(RM) $(OBJ)
 
+# 'fclean' rule is an alias for 'clean' and 'oclean'
 fclean: clean oclean
 
+# 're' rule cleans and rebuilds the program
 re: oclean all

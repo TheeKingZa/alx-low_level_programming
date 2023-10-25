@@ -1,33 +1,19 @@
-# Makefile for 'school' executable
-
-# Compiler and Flags
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
-
-# Source Files
 SRC = main.c school.c
-
-# Object Files (automatically generated from source files)
 OBJ = $(SRC:.c=.o)
-
-# Executable Name
 NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
+.PHONY:all clean oclean fclean re
 
-# Cleaning Program (used for deleting files)
-RM = /bin/rm
-
-# Rules
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+all: m.h $(OBJ)
+        $(CC) $(OBJ) -o $(NAME)
 
 clean:
-	-$(RM) -f $(NAME) $(OBJ) *~ \#*\#
+        $(RM) *~ $(NAME)
 
-fclean: clean
+oclean:
+        $(RM) $(OBJ)
 
-re: fclean all
+fclean: clean oclean
 
-.PHONY: all clean fclean re
-
+re: oclean all

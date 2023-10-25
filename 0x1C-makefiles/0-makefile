@@ -1,0 +1,19 @@
+# Makefile for 'school' executable
+
+# Rules
+all: school
+
+# Build the 'school' executable
+school: main.c school.c
+	gcc main.c school.c -o school
+
+# Clean up generated files
+clean:
+	rm -f school
+
+# Run the executable
+run: school
+	./school
+
+# Phony target to ensure 'all' and 'run' rules are executed every time
+.PHONY: all run

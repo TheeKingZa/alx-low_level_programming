@@ -90,3 +90,29 @@ This README provides an overview of Make and Makefiles, their use cases, rules, 
 ==Code==
 
 This README should give users a good starting point for understanding Make and Makefiles, how to use them, and the key concepts involved. You can include this in your project's documentation and adapt it as needed.
+0-makefile.
+-----------
+
+This Makefile has three rules:
+
+* all : this is the default rule, and it builds the school executable using the specified compilation command.
+
+* clean : This rule removes the school executable, helping to clean up generated files.
+
+* run : This rule first builds the school executable (if not already built) and then runs it.
+
+The .PHONY target is used to declare all and run as phony targets, which ensures they are executed even if files with the same names exist in the directory.
+
+1. Save the Makefile.
+2. Open your terminal and navigate to the project directory, where the Makefile is located.
+3. Use the following command to build the "school" executable:
+
+make -f 0-makefile
+
+-- This command tells Make to use "0-makefile" as the makefile for this operation.
+
+1. After the build is successful, you can run the "school" executable using the following command:
+
+./school
+---to run program.
+-------------------------------------------------------------------

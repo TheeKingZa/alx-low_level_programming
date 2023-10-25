@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-README.md print_school();
-README.md return (EXIT_SUCCESS);
+	print_school();
+	return (EXIT_SUCCESS);
 }

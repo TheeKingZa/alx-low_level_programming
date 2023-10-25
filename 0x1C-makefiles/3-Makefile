@@ -1,20 +1,34 @@
-CC = gcc
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
-RM = rm
+# Makefile for 'school' executable
 
-all:$(OBJ)
-        $(CC) $(OBJ) -o $(NAME)
+# Variables
+CC = gcc                # Compiler to be used (gcc)
+SRC = main.c school.c    # List of source files
+OBJ = $(SRC:.c=.o)      # List of object files derived from source files
+NAME = school            # Name of the executable
+RM = rm -f               # Program to delete files (rm -f)
 
-.PHONY: clean oclean fclean re
+# The default target is 'all'
+all: $(NAME)             # 'all' rule depends on the executable
 
+# Build the 'school' executable
+$(NAME): $(OBJ)
+        @echo "Compiling..."
+        @$(CC) $(OBJ) -o $(NAME)
+        @echo "Done."
+
+# Remove Emacs and Vim temporary files and the executable
 clean:
-        $(RM) -rf *~ $(NAME)
+        $(RM) *~ $(NAME)
 
+# Remove object files
 oclean:
-        $(RM) -rf $(OBJ)
+        $(RM) $(OBJ)
 
+# Remove Emacs and Vim temporary files, the executable, and object files
 fclean: clean oclean
 
+# Force recompilation of all source files
 re: oclean all
+
+# Ensure that 'clean', 'oclean', 'fclean', and 're' never fail
+.PHONY: clean oclean fclean re

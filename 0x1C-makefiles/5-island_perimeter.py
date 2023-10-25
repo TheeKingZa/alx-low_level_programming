@@ -28,7 +28,7 @@ def island_perimeter(grid):
                     perimeter -= 2
 
                 # Check the cell to the left and
-                #subtract 2 if it's also land.
+                # subtract 2 if it's also land.
                 if col > 0 and grid[row][col - 1] == 1:
                     perimeter -= 2
 

@@ -12,17 +12,17 @@ all: $(NAME)             # 'all' rule depends on the executable
 
 # Build the 'school' executable
 $(NAME): $(OBJ)
-        @echo "Compiling..."
-        @$(CC) $(OBJ) -o $(NAME)
-        @echo "Done."
+	@echo "Compiling..."
+	@$(CC) $(OBJ) -o $(NAME)
+	@echo "Done."
 
 # Remove Emacs and Vim temporary files and the executable
 clean:
-        $(RM) *~ $(NAME)
+	$(RM) *~ $(NAME)
 
 # Remove object files
 oclean:
-        $(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 # Remove Emacs and Vim temporary files, the executable, and object files
 fclean: clean oclean

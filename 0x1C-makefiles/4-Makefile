@@ -1,8 +1,8 @@
 # Compiler
 CC = gcc
 
-# Source files
-SRC = your_source_file1.c your_source_file2.c
+# Source files (replace these with your actual source files)
+SRC = file1.c file2.c
 
 # Object files (generated from source files)
 OBJ = $(SRC:.c=.o)

@@ -1,5 +1,3 @@
-# Makefile for 'school' executable
-
 # Compiler and Flags
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
@@ -16,18 +14,23 @@ NAME = school
 # Cleaning Program (used for deleting files)
 RM = /bin/rm
 
-# Rules
-all: $(NAME)
+# Declare phony targets (targets that are not associated with files)
+.PHONY: all clean oclean fclean re
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+# 'all' rule compiles the program if 'm.h' exists and object files are up to date
+all: m.h $(OBJ)
+        $(CC) $(OBJ) -o $(NAME)
 
+# 'clean' rule removes temporary files and the executable
 clean:
-	-$(RM) -f $(NAME) $(OBJ) *~ \#*\#
+        $(RM) *~ $(NAME)
 
-fclean: clean
+# 'oclean' rule removes the object files
+oclean:
+        $(RM) $(OBJ)
 
-re: fclean all
+# 'fclean' rule is an alias for 'clean' and 'oclean'
+fclean: clean oclean
 
-.PHONY: all clean fclean re
-
+# 're' rule cleans and rebuilds the program
+re: oclean all

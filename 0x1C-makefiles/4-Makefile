@@ -1,19 +1,44 @@
+# Compiler
 CC = gcc
-SRC = main.c school.c
+
+# Source files
+SRC = your_source_file1.c your_source_file2.c
+
+# Object files (generated from source files)
 OBJ = $(SRC:.c=.o)
+
+# Executable name
 NAME = school
+
+# Command to remove files
 RM = rm -f
+
+# Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-all:  $(OBJ)
-    $(CC) $(OBJ) -o $(NAME)
+# Default target
+all: $(NAME)
 
+# Build the executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Compile source files to object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean Emacs and Vim temporary files, executable, and object files
 clean:
-    $(RM) *~ $(NAME)
+	$(RM) *~ \#* $(NAME)
 
+# Clean object files
 oclean:
-    $(RM) $(OBJ)
+	$(RM) $(OBJ)
 
+# Clean Emacs and Vim temporary files, executable, and object files
 fclean: clean oclean
 
-re: oclean all
+# Force recompilation of source files
+re: fclean all
+
+.PHONY: all clean oclean fclean re

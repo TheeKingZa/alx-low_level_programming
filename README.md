@@ -1,7 +1,6 @@
 # Low Level Programming
-[]()
+[<]()
 # My begining with the C language.
-* C:
    * [Hello World](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x00-hello_world/README.md)
    * [Variables If Else while](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x01-variables_if_else_while/README.md)
    * [functions_nested_loops](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x02-functions_nested_loops/README.md)

@@ -1,5 +1,5 @@
 # Makefiles
-[]() 0x1C [>](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1E-search_algorithms/README.md)
+[<](https://github.com/TheeKingZa/alx-low_level_programming/tree/master/0x1A-hash_tables) 0x1C [>](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1E-search_algorithms/README.md)
 ----
 
 Resources
@@ -46,6 +46,8 @@ target: prerequisites
 * Commands: The actions to execute for building the target.
 ```
 
+[^](#need-to-know)
+
 # What Are Explicit and Implicit Rules?
 
 # Explicit Rules:
@@ -57,9 +59,7 @@ target: prerequisites
 # What are Variables:
     Variables in a Makefile are used to store values that can be reused throughout the file. They provide a way to define values in one place and use them in multiple locations. In the given Makefile, variables like "CC" (compiler) and "CFLAGS" (compiler flags) are defined. Using variables makes it easier to update values consistently across the Makefile.
 
-
 [^](#need-to-know)
-
 
 # Common/Useful Rules:
 ```

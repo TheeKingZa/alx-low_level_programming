@@ -43,6 +43,7 @@ target: prerequisites
 * Target: The file or action you want to build.
 * Prerequisites: The files or actions that the target depends on.
 * Commands: The actions to execute for building the target.
+```
 
 # What Are Explicit and Implicit Rules?
 Explicit Rules:

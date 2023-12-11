@@ -1,5 +1,5 @@
-# Understanding Hash Tables and Hash Functions
-
+# Hash Tables
+[]() 0x1A []()
 ## Table of Contents
 - [What is a Hash Function?](#what-is-a-hash-function)
 - [What Makes a Good Hash Function?](#what-makes-a-good-hash-function)

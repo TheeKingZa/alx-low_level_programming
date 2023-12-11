@@ -1,5 +1,5 @@
 # Hash Tables
-[]() 0x1A []()
+[]() 0x1A [>](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1C-makefiles/README.md)
 ## Table of Contents
 - [What is a Hash Function?](#what-is-a-hash-function)
 - [What Makes a Good Hash Function?](#what-makes-a-good-hash-function)

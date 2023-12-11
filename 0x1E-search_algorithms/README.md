@@ -1,5 +1,5 @@
 # Search Algorithms
-[<](https://github.com/TheeKingZa/alx-low_level_programming/tree/master/0x1C-makefiles/README.md) 0x1E [#](https://github.com/TheeKingZa/Portfolio/README.md)
+[<](https://github.com/TheeKingZa/alx-low_level_programming/tree/master/0x1C-makefiles/README.md) 0x1E [#](https://github.com/TheeKingZa/Portfolio/tree/master/README.md))
 ---
 
 # Resources

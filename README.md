@@ -28,6 +28,8 @@
    * [makefiles](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1C-makefiles/README.md)
    * [Search Algorithms](https://github.com/TheeKingZa/alx-low_level_programming/tree/master/0x1E-search_algorithms/README.md)
 
+---
+
 
 
 * Other projects

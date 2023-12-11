@@ -13,9 +13,9 @@ Read or watch:
 * [What are make, Makefiles](#what-are-make-and-makefiles)
 * [When](#when), [why](#why) and [how](#how) to use [Makefiles](#when-why-and-how-to-use-makefiles)
 * [What are rules and how to set and use them](#what-are-rules-and-how-to-set-and-use-them)
-* [What are explicit and implicit rules]()
-* [What are the most common / useful rules]()
-* [What are variables and how to set and use them]()
+* What are [explicit](#explicit-rules) and [implicit](#implicit-rules) [rules](#what-are-explicit-and-implicit-rules)?
+* [What are the most common / useful rules](#commonuseful-rules)
+* [What are variables and how to set and use them](#what-are-variables)
 
 ## What are Make and Makefiles?
 
@@ -32,6 +32,7 @@ Makefiles make it easy to manage complex projects with many dependencies, and th
 ### How:
 To use Makefiles, you create a file named "Makefile" or "makefile" in your project directory, defining the rules for building your project.
 
+---
 ## What Are Rules and How to Set and Use Them?
 
 In a Makefile, rules define how to build specific targets. A rule typically consists of a target, prerequisites, and commands.
@@ -46,46 +47,29 @@ target: prerequisites
 ```
 
 # What Are Explicit and Implicit Rules?
-Explicit Rules:
-Explicit rules are defined in the Makefile and specify how to build a target directly. You provide the recipe for building the target.
+
+# Explicit Rules:
+    Explicit rules in a Makefile define how to generate one or more target files from their prerequisites. They specify the dependencies and the recipe (commands) to build the target. For example, in the provided Makefile, the explicit rule for the "main" target states that it depends on "main.o" and "helper.o," and the recipe to build it is the compilation and linking command.
 
 # Implicit Rules:
-Implicit rules are built-in rules that Make uses when there is no explicit rule for a target. They are predefined for common file types, like C source files.
+    Implicit rules are built-in rules that Make uses when there is no explicit rule provided for a target. They are rules that define how to build files automatically. For instance, in the Makefile, the implicit rule for turning a .c file into a .o file is used. If you have a source file named "example.c," Make will automatically compile it to an object file "example.o" without the need for an explicit rule.
 
-What Are the Most Common/Useful Rules?
-Some common and useful rules in a Makefile include:
+# What are Variables:
+    Variables in a Makefile are used to store values that can be reused throughout the file. They provide a way to define values in one place and use them in multiple locations. In the given Makefile, variables like "CC" (compiler) and "CFLAGS" (compiler flags) are defined. Using variables makes it easier to update values consistently across the Makefile.
 
-needed. include this in your project's documentation and adapt it as
--bash: bad substitution: no closing "`" in `make
-target: prerequisites
-    commands
 
-* Target: The file or action you want to build.
-* Prerequisites: The files or actions that the target depends on.
-* Commands: The actions to execute for building the target.
+[^](#need-to-know)
 
-## What Are Explicit and Implicit Rules?
 
-Explicit Rules:
-Explicit rules are defined in the Makefile and specify how to build a target directly. You provide the recipe for building the target.
+# Common/Useful Rules:
+```
+Common or useful rules in a Makefile are predefined targets that simplify common tasks. In the provided Makefile, there are two common rules:
 
-## Implicit Rules:
-
-Implicit rules are built-in rules that Make uses when there is no explicit rule for a target. They are predefined for common file types, like C source files.
-
-What Are the Most Common/Useful Rules?
-Some common and useful rules in a Makefile include:
-
-* all : Builds the entire project.
-* clean : Remove generated files.
-* install : Installs the program.
-* test : Runs tests
-* help : Displays help information.
-
-What Are Variables and How to Set and Use Them?
-Variables in Makefiles allow you to store values that can be reused throughout the file. You can set and use variables as follows:
-
-==make==
+"clean" removes all generated files (executables and object files).
+"help" displays a usage message, providing information about available targets and their purposes.
+```
+```
+_makefile
 --Code--
 
 CC = gcc
@@ -98,7 +82,7 @@ target: prerequisites
 
 * CC : Compiler executable.
 * CFLAGS : Compiler flags.
-
+```
 By using variables, you can make your Makefile more flexible and easier to maintain.
 
 This README provides an overview of Make and Makefiles, their use cases, rules, and variables. For detailed instructions and examples, refer to the project's specific Makefile.
@@ -106,34 +90,6 @@ This README provides an overview of Make and Makefiles, their use cases, rules, 
 ==Code==
 
 This README should give users a good starting point for understanding Make and Makefiles, how to use them, and the key concepts involved. You can include this in your project's documentation and adapt it as needed.
-0-makefile.
-
----------------------------------------------------------
 
 
-0-makefile
------------
-
-This Makefile has three rules:
-
-* all : this is the default rule, and it builds the school executable using the specified compilation command.
-
-* clean : This rule removes the school executable, helping to clean up generated files.
-
-* run : This rule first builds the school executable (if not already built) and then runs it.
-
-The .PHONY target is used to declare all and run as phony targets, which ensures they are executed even if files with the same names exist in the directory.
-
-1. Save the Makefile.
-2. Open your terminal and navigate to the project directory, where the Makefile is located.
-3. Use the following command to build the "school" executable:
-
-make -f 0-makefile
-
--- This command tells Make to use "0-makefile" as the makefile for this operation.
-
-1. After the build is successful, you can run the "school" executable using the following command:
-
-./school
----to run program.
--------------------------------------------------------------------
+[^](#makefiles)

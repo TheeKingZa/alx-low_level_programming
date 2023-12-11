@@ -26,6 +26,7 @@
    * [dynamic_libraries](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x18-dynamic_libraries/README.md)
    * [hash_tables](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1A-hash_tables/README.md)
    * [makefiles](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1C-makefiles/README.md)
+   * [Search Algorithms](https://github.com/TheeKingZa/alx-low_level_programming/tree/master/0x1E-search_algorithms/README.md)
 
 
 

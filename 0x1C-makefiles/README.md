@@ -1,8 +1,21 @@
-Makefiles
----------
-0x1C
+# Makefiles
+[]() 0x1C [>](https://github.com/TheeKingZa/alx-low_level_programming/blob/master/0x1E-search_algorithms/README.md)
 ----
 
+Resources
+Read or watch:
+
+* [Makefile](https://opensource.com/article/18/8/what-how-makefile)
+* [Installing the make utility](https://www.geeksforgeeks.org/how-to-install-make-on-ubuntu/)
+* [make-official documentation](https://www.gnu.org/software/make/manual/html_node/)
+
+# NEED TO KNOW?
+* [What are make, Makefiles](#what-are-make-and-makefiles)
+* [When](#when), [why](#why) and [how](#how) to use [Makefiles](#when-why-and-how-to-use-makefiles)
+* [What are rules and how to set and use them](#what-are-rules-and-how-to-set-and-use-them)
+* [What are explicit and implicit rules]()
+* [What are the most common / useful rules]()
+* [What are variables and how to set and use them]()
 
 ## What are Make and Makefiles?
 
@@ -31,17 +44,17 @@ target: prerequisites
 * Prerequisites: The files or actions that the target depends on.
 * Commands: The actions to execute for building the target.
 
-What Are Explicit and Implicit Rules?
+# What Are Explicit and Implicit Rules?
 Explicit Rules:
 Explicit rules are defined in the Makefile and specify how to build a target directly. You provide the recipe for building the target.
 
-Implicit Rules:
+# Implicit Rules:
 Implicit rules are built-in rules that Make uses when there is no explicit rule for a target. They are predefined for common file types, like C source files.
 
 What Are the Most Common/Useful Rules?
 Some common and useful rules in a Makefile include:
 
-ieeded. include this in your project's documentation and adapt it as
+needed. include this in your project's documentation and adapt it as
 -bash: bad substitution: no closing "`" in `make
 target: prerequisites
     commands
@@ -50,11 +63,13 @@ target: prerequisites
 * Prerequisites: The files or actions that the target depends on.
 * Commands: The actions to execute for building the target.
 
-What Are Explicit and Implicit Rules?
+## What Are Explicit and Implicit Rules?
+
 Explicit Rules:
 Explicit rules are defined in the Makefile and specify how to build a target directly. You provide the recipe for building the target.
 
-Implicit Rules:
+## Implicit Rules:
+
 Implicit rules are built-in rules that Make uses when there is no explicit rule for a target. They are predefined for common file types, like C source files.
 
 What Are the Most Common/Useful Rules?
@@ -91,6 +106,11 @@ This README provides an overview of Make and Makefiles, their use cases, rules, 
 
 This README should give users a good starting point for understanding Make and Makefiles, how to use them, and the key concepts involved. You can include this in your project's documentation and adapt it as needed.
 0-makefile.
+
+---------------------------------------------------------
+
+
+0-makefile
 -----------
 
 This Makefile has three rules:

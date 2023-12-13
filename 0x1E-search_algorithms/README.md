@@ -150,6 +150,56 @@ A) Big O #5
     of size n x m,
     and the space complexity is proportional
     to the product of n and m.
+---
+
+Q) Big O #5 (Advanced)
+    What is the time complexity (average case)
+    of a jump search in an array of size n,
+    using 
+    ```
+    step = sqrt(n)?
+    ```
+
+A) Big O #5 (Advanced)
+    The time complexity (average case)
+    of a jump search in an array of size n,
+    using 
+    ```
+    step = sqrt(n), is O(√n).
+    ```
+---
+
+Q) Big O #6 (Advanced)
+    What is the time complexity (average case)
+    of a jump search in a singly linked list of size n,
+    using 
+    ```
+    step = sqrt(n)?
+    ```
+A) Big O #6 (Advanced)
+    The time complexity (average case)
+    of a jump search in a singly linked list of size n,
+    using 
+    ```
+    step = sqrt(n), is O(√n).
+    ```
+---
+
+Q) Big O #7 (Advanced)
+    What is the time complexity (average case)
+    of a jump search in a skip list of size n,
+    with an express lane using 
+        ```
+        step = sqrt(n)?
+        ```
+
+A) Big O #7 (Advanced)
+    The time complexity (average case)
+    of a jump search in a skip list of size n,
+    with an express lane using 
+        ```
+        step = sqrt(n), is O(log n).
+        ```
 ```
 
 [^](#search-algorithms)

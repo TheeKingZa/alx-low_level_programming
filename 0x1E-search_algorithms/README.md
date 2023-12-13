@@ -22,19 +22,17 @@
 
 A search algorithm is a step-by-step procedure or method for finding a specific target among a set of elements. These algorithms play a crucial role in computer science and are used to efficiently locate information in various data structures.
 
-[^](#need-to-know)
 
 ## Linear Search
     # [more about...](https://en.wikipedia.org/wiki/Linear_search)
 Linear search, also known as sequential search, is a simple search algorithm that traverses a list or array and checks each element in order until the target is found or the entire list is exhausted. It is a straightforward method but may not be the most efficient for large datasets.
 
-[^](#need-to-know)
 
 ### Time Complexity:
 - Best Case: O(1) (when the target is found at the beginning)
 - Worst Case: O(n) (when the target is at the end or not present)
 
-[^](#need-to-know)
+
 
 ## Binary Search
     # [more about...](https://en.wikipedia.org/wiki/Binary_search_algorithm)
@@ -81,8 +79,9 @@ Feel free to explore other search algorithms depending on your unique use case a
   * NOTE: [You can find here](https://github.com/alx-tools/0x1D.c/tree/master/skiplist) the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
   * [more here..](https://www.educative.io/answers/what-is-a-jump-search)
     
+[^](#need-to-know)
 
-
+---
 # Q & A
 ```
 Q) Big O #1

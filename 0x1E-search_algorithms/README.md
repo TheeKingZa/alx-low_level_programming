@@ -72,6 +72,15 @@ Remember that there is no one-size-fits-all solution, and the best algorithm may
 Feel free to explore other search algorithms depending on your unique use case and requirements.
 
 ---
+# Based on
+    * [Jump Search](https://en.wikipedia.org/wiki/Jump_search)
+    * [Interpolation Search](https://en.wikipedia.org/wiki/Interpolation_search)
+    * [Exponential Search](https://en.wikipedia.org/wiki/Exponential_search)
+    * [Skip List](https://en.wikipedia.org/wiki/Skip_list)
+    * NOTE: [You can find here](https://github.com/alx-tools/0x1D.c/tree/master/skiplist) the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
+    * [more here..](https://www.educative.io/answers/what-is-a-jump-search)
+    
+
 
 # Q & A
 ```

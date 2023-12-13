@@ -107,7 +107,7 @@ Q) Big O #5
 What is the space complexity of this function / algorithm?
 
 ```
-cCopy code:
+C code:
 
     int **allocate_map(int n, int m)
     {

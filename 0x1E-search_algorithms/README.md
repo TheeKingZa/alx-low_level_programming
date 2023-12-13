@@ -15,7 +15,7 @@
 * [Time Complexity](#time-complexity)
 * [What is a binary search](#binary-search)
 * [What is the best search algorithm to use depending on your needs](#choosing-the-right-search-algorithm)
-
+* [Q and As](#q--a)
 
 ## What is a Search Algorithm?
 
@@ -71,8 +71,59 @@ Remember that there is no one-size-fits-all solution, and the best algorithm may
 
 Feel free to explore other search algorithms depending on your unique use case and requirements.
 
-0-
-What is the [time complexity](https://www.mygreatlearning.com/blog/why-is-time-complexity-essential/) (worst case) of a linear search in an array of size n?
-O(n)
+---
+
+# Q & A
+```
+Q) Big O #1
+What is the time complexity (worst case) of a linear search in an array of size n?
+
+A) Big O #1
+The time complexity (worst case) of a linear search in an array of size n is O(n).
+---
+
+Q) Big O #2
+What is the space complexity (worst case) of an iterative linear search algorithm in an array of size n?
+
+A) Big O #2
+The space complexity (worst case) of an iterative linear search algorithm in an array of size n is O(1). It is constant space, as it doesn't require additional memory proportional to the input size.
+---
+
+Q) Big O #3
+What is the time complexity (worst case) of a binary search in an array of size n?
+
+A) Big O #3
+The time complexity (worst case) of a binary search in an array of size n is O(log(n)).
+---
+
+Q) Big O #4
+What is the space complexity (worst case) of a binary search in an array of size n?
+
+A) Big O #4
+The space complexity (worst case) of a binary search in an array of size n is O(1). It is constant space, as it doesn't require additional memory proportional to the input size.
+---
+
+Q) Big O #5
+What is the space complexity of this function / algorithm?
+
+
+cCopy code:
+
+int **allocate_map(int n, int m)
+{
+     int **map;
+
+     map = malloc(sizeof(int *) * n);
+     for (size_t i = 0; i < n; i++)
+     {
+          map[i] = malloc(sizeof(int) * m);
+     }
+     return (map);
+}
+
+
+A) Big O #5
+The space complexity of the allocate_map function is O(n * m). It allocates a 2D array of size n x m, and the space complexity is proportional to the product of n and m.
+```
 
 [^](#search-algorithms)

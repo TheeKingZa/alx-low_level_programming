@@ -15,6 +15,7 @@
 * [Time Complexity](#time-complexity)
 * [What is a binary search](#binary-search)
 * [What is the best search algorithm to use depending on your needs](#choosing-the-right-search-algorithm)
+* [Based on](#based-on) Jump, Interpolation, Exponential and Skip list.
 * [Q and As](#q--a)
 
 ## What is a Search Algorithm?

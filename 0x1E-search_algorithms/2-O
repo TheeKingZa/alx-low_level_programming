@@ -1,1 +1,3 @@
-worst case: 0(n)
+Worst Case: O(n)
+Best Case: O(1)
+Average Case: O(n)

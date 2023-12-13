@@ -76,35 +76,56 @@ Feel free to explore other search algorithms depending on your unique use case a
 # Q & A
 ```
 Q) Big O #1
-What is the time complexity (worst case) of a linear search in an array of size n?
+    What is the time complexity (worst case)
+    of a linear search in an
+    array of size n?
 
 A) Big O #1
-The time complexity (worst case) of a linear search in an array of size n is O(n).
+    The time complexity (worst case)
+    of a linear search in an
+    array of size n is O(n).
 ---
 
 Q) Big O #2
-What is the space complexity (worst case) of an iterative linear search algorithm in an array of size n?
+    What is the space complexity (worst case)
+     of an iterative linear search algorithm in an
+    array of size n?
 
 A) Big O #2
-The space complexity (worst case) of an iterative linear search algorithm in an array of size n is O(1). It is constant space, as it doesn't require additional memory proportional to the input size.
+    The space complexity (worst case)
+     of an iterative linear search algorithm
+    in an array of size n is O(1).
+    It is constant space,
+    as it doesn't require additional memory proportional to the input size.
 ---
 
 Q) Big O #3
-What is the time complexity (worst case) of a binary search in an array of size n?
+    What is the time complexity (worst case)
+    of a binary search in an array of size n?
 
 A) Big O #3
-The time complexity (worst case) of a binary search in an array of size n is O(log(n)).
+    The time complexity (worst case)
+    of a binary search in an array of size
+    n is O(log(n)).
 ---
 
 Q) Big O #4
-What is the space complexity (worst case) of a binary search in an array of size n?
+    What is the space complexity (worst case)
+    of a binary search
+    in an array of size n?
 
 A) Big O #4
-The space complexity (worst case) of a binary search in an array of size n is O(1). It is constant space, as it doesn't require additional memory proportional to the input size.
+    The space complexity (worst case)
+    of a binary search in an
+    array of size n is O(1).
+    It is constant space,
+    as it doesn't require additional
+    memory proportional to the input size.
 ---
 
 Q) Big O #5
-What is the space complexity of this function / algorithm?
+    What is the space complexity of
+    this function / algorithm?
 
 ```
 C code:
@@ -123,7 +144,12 @@ C code:
 ```
 
 A) Big O #5
-The space complexity of the allocate_map function is O(n * m). It allocates a 2D array of size n x m, and the space complexity is proportional to the product of n and m.
+    The space complexity of
+    the allocate_map function is O(n * m).
+    It allocates a 2D array
+    of size n x m,
+    and the space complexity is proportional
+    to the product of n and m.
 ```
 
 [^](#search-algorithms)

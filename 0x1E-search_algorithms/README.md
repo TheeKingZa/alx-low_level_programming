@@ -24,7 +24,7 @@ A search algorithm is a step-by-step procedure or method for finding a specific 
 [^](#need-to-know)
 
 ## Linear Search
-
+    # [more about...](https://en.wikipedia.org/wiki/Linear_search)
 Linear search, also known as sequential search, is a simple search algorithm that traverses a list or array and checks each element in order until the target is found or the entire list is exhausted. It is a straightforward method but may not be the most efficient for large datasets.
 
 [^](#need-to-know)
@@ -36,7 +36,7 @@ Linear search, also known as sequential search, is a simple search algorithm tha
 [^](#need-to-know)
 
 ## Binary Search
-
+    # [more about...](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 Binary search is a more efficient algorithm, especially for sorted datasets. It works by repeatedly dividing the search space in half until the target is found or the search space is empty.
 
 [^](#need-to-know)
@@ -71,5 +71,8 @@ Remember that there is no one-size-fits-all solution, and the best algorithm may
 
 Feel free to explore other search algorithms depending on your unique use case and requirements.
 
+0-
+What is the [time complexity](https://www.mygreatlearning.com/blog/why-is-time-complexity-essential/) (worst case) of a linear search in an array of size n?
+O(n)
 
 [^](#search-algorithms)

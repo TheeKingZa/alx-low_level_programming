@@ -1,1 +1,11 @@
-worst case: O(n)
+/* Function description: This function implements a linear search algorithm.
+ * It has a time complexity of O(n) where n is the size of the input array.
+ * The algorithm iterates through each element in the array until a match is found.
+ * Parameters:
+ *   - array: The input array to be searched.
+ *   - size: The size of the array.
+ *   - target: The element to search for.
+ * Returns: The index of the target element if found, otherwise -1.
+ */
+
+O(n)

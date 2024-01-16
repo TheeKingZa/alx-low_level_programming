@@ -33,7 +33,7 @@
 
 
 # Other projects
-  *[Alx-system_engineering_devops](https://github.com/TheeKingZa/alx-system_engineering-devops/blob/master/README.md)
+  * [Alx-system_engineering_devops](https://github.com/TheeKingZa/alx-system_engineering-devops/blob/master/README.md)
   * [Alx-Higher_Level_Programming](https://github.com/TheeKingZa/alx-higher_level_programming/tree/master/README.md)
      
 [^](#low-level-programming)

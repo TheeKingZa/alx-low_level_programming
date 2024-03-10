@@ -1,57 +1,47 @@
 #include <stdio.h>
+
 /**
-* main - prints all possible combinations of two two-digit numbers
-*
-* Return: 0 Success
-*/
+ * main - Entry point
+ *
+ * Description: Prints all possible combinations of two two-digit numbers,
+ *              separated by a space, with each combination separated by a
+ *              comma and a space.
+ *              Numbers are printed with leading zeros when necessary.
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-				int i, j;
-/* loop through all possible first two-digit numbers (00 to 99) */
-				for (i = 0; i < 100; i++)
-				{
-/* loop through all possible second two-digit numbers (00 to 99) */
-				for (j = 0; j < 100; j++)
-				{
-/* check if the combination is unique and in ascending order */
-				if (i < j)
-				{
-/* print the first two-digit number with leading zero if necessary */
-				if (i < 10)
-				{
-				putchar('0');
-				putchar(i + '0');
-				}
-				else
-				{
-				putchar((i / 10) + '0');
-				putchar((i % 10) + '0');
-				}
-/* print the separator between the two numbers */
-				putchar(' ');
-				putchar(' ');
-/* print the second two-digit number with leading zero if necessary */
-				if (j < 10)
-				{
-				putchar('0');
-				putchar(j + '0');
-				}
-				else
-				{
-				putchar((j / 10) + '0');
-				putchar((j % 10) + '0');
-				}
-/* if not the last pair, print comma and space */
-				if (i < 99)
-				{
-				putchar(',');
-				putchar(' ');
-				}
-				}
-				}
-				}
-/* print a newline character at the end */
-				putchar('\n');
-				return (0);
-/*Return 0 Success*/
+int num1, num2;
+/* Iterate through all possible first two-digit numbers */
+for (num1 = 0; num1 <= 98; num1++)
+{
+/* Iterate through all possible second two-digit numbers */
+for (num2 = num1 + 1; num2 <= 99; num2++)
+{
+/* Print tens digit of first number */
+putchar(num1 / 10 + '0');
+/* Print ones digit of first number */
+putchar(num1 % 10 + '0');
+/* Print space */
+putchar(' ');
+/* Print tens digit of second number */
+putchar(num2 / 10 + '0');
+/* Print ones digit of second number */
+putchar(num2 % 10 + '0');
+
+/* Check if it's not the last combination */
+if (num1 != 98 || num2 != 99)
+{
+/* Print comma and space */
+putchar(',');
+putchar(' ');
+}
+}
+}
+
+/* Print newline character */
+putchar('\n');
+
+return (0);
 }

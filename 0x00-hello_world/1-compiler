@@ -1,2 +1,27 @@
 #!/bin/bash
-gcc -c $CFILE -o o
+
+# Check if the C file variable is set
+if [ -z "$CFILE" ]; then
+    # If not, try to extract it from the command line argument
+    if [ "$#" -eq 1 ]; then
+        CFILE="$1"
+    else
+        echo "Error: CFILE variable is not set"
+        exit 1
+    fi
+fi
+
+# Extract the filename without extension
+FILENAME=$(basename "$CFILE" .c)
+
+# Compile the C file without linking
+gcc -c "$CFILE" -o "$FILENAME.o"
+
+# Check if compilation was successful
+if [ $? -eq 0 ]; then
+    echo "Compilation successful: $FILENAME.o"
+else
+    echo "Error: Compilation failed"
+    exit 1
+fi
+
